@@ -2,8 +2,8 @@ import './App.css';
 
 function App() {
   return (
-   <div className="">
-
+   <div className="h-screen">
+<div className="h-36 bg-green-600"></div>
    </div>
   );
 }
