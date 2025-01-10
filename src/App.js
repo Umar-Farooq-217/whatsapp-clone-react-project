@@ -1,10 +1,21 @@
+import { AppBar, Box, styled, Toolbar } from '@mui/material';
 import './App.css';
 
+
+const Header = styled(AppBar)`
+height:200px;
+background:green;
+`
 function App() {
   return (
-   <div className="h-screen">
-<div className="h-36 bg-green-600"></div>
-   </div>
+   <>
+   <Header>
+    <Toolbar>
+
+    </Toolbar>
+   </Header>
+
+   </>
   );
 }
 
