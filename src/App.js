@@ -14,7 +14,7 @@ function App() {
    <Header>
     <Box className='flex justify-start items-center pl-20 pt-6'>
       <img src={whatsapp} className='' width={30} height={30} alt='whatsapp pic'/>
-      <Typography className='font-bold text-3xl pl-4'>Web Whatsapp</Typography>
+      <Typography sx={{fontSize:'20px', fontWeight:'bold',paddingLeft:'9px'}}>Web Whatsapp</Typography>
     </Box>
     <LoginDetails/>
    </Header>
