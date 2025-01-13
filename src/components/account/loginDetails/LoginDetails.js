@@ -2,9 +2,8 @@ import React from 'react'
 import Dialog from '@mui/material/Dialog';
 import { Box, List, ListItem,  Typography } from '@mui/material';
 import {qrCodeImage} from '../../../constants/Constants'
-// const log = styled(Typography)`
-// fontSize:25px
-// `;
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
 const dialogStyle = {
   height:"70%",
   // minWidth:'800px',
@@ -16,6 +15,20 @@ const dialogStyle = {
 }
 
 export default function LoginDetails() {
+  const onLoginSuccess = (res)=>{
+    const token = res?.credential; // Example if `res` contains `credential` as the token
+    try {
+      const decode = jwtDecode(token);
+      console.log(decode);
+    } catch (error) {
+      console.error('Error decoding token:', error.message);
+    }
+
+  }
+  const onLoginError = (res)=>{
+console.log("On Error " , res);
+
+  }
   return (
     <div >
      
@@ -35,8 +48,9 @@ setting : and select
   <ListItem>3. Scan this QR code</ListItem>
 </List>
         </Box>
-        <Box className='p-8'>
+        <Box className='p-8 '>
           <img src={qrCodeImage} alt="scan code" />
+          <GoogleLogin  onSuccess={onLoginSuccess} onError={onLoginError} />
         </Box>
 
       </Box>
