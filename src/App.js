@@ -1,11 +1,12 @@
 import './App.css';
+import Messenger from './components/messenger/Messenger';
 
 
 function App() {
   
   return (
   <>
-
+<Messenger/>
   </>
   );
 }
