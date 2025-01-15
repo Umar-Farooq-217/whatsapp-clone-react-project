@@ -1,18 +1,18 @@
-import React, { createContext } from 'react'
+import React from 'react'
 import { AppBar, styled, Box, Typography } from '@mui/material';
-
+import AccountProvider from '../context/accountProvider';
 import whatsapp from '../../images/whatsapp.svg'
 import LoginDetails from '../../components/account/loginDetails/LoginDetails';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import AccountProvider from '../context/AccountProvider';
 const Header = styled(AppBar)`
 height:200px;
 background:#25D366;
 `
 
 export default function Messenger() {
-  const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
-      console.log(clientId);
+  const clientId ='1006514867973-n0ljnnvj7idvq03audm114t3o3kkaqvr.apps.googleusercontent.com'
+     console.log(clientId);
+   
     
   return (
     <div>
