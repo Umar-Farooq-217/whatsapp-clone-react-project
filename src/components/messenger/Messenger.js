@@ -11,20 +11,23 @@ background:#25D366;
 `
 
 export default function Messenger() {
-    const clientId = process.env.CLIENT_ID
+  const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
+      console.log(clientId);
+    
   return (
     <div>
        <>
-   <GoogleOAuthProvider clientId={clientId}>
     <AccountProvider>
+   <GoogleOAuthProvider clientId={clientId}>
    <Header>
     <Box className='flex justify-start items-center pl-20 pt-6'>
       <img src={whatsapp} className='' width={30} height={30} alt='whatsapp pic'/>
       <Typography sx={{fontSize:'20px', fontWeight:'bold',paddingLeft:'9px'}}>Web Whatsapp</Typography>
     </Box>
     <LoginDetails/>
-   </Header></AccountProvider>
+   </Header>
     </GoogleOAuthProvider>;
+   </AccountProvider>
 
    </>
     </div>

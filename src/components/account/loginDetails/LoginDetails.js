@@ -16,7 +16,7 @@ const dialogStyle = {
 
 export default function LoginDetails() {
   const onLoginSuccess = (res)=>{
-    const token = res?.credential; // Example if `res` contains `credential` as the token
+    const token = res?.credential; 
     try {
       const decode = jwtDecode(token);
       console.log(decode);
