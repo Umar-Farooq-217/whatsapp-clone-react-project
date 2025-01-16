@@ -1,6 +1,5 @@
 import React from 'react'
 import { AppBar, styled, Box, Typography } from '@mui/material';
-import AccountProvider from '../context/accountProvider';
 import whatsapp from '../../images/whatsapp.svg'
 import LoginDetails from '../../components/account/loginDetails/LoginDetails';
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -17,7 +16,7 @@ export default function Messenger() {
   return (
     <div>
        <>
-    <AccountProvider>
+    {/* <AccountProvider> */}
    <GoogleOAuthProvider clientId={clientId}>
    <Header>
     <Box className='flex justify-start items-center pl-20 pt-6'>
@@ -27,7 +26,7 @@ export default function Messenger() {
     <LoginDetails/>
    </Header>
     </GoogleOAuthProvider>;
-   </AccountProvider>
+   {/* </AccountProvider> */}
 
    </>
     </div>

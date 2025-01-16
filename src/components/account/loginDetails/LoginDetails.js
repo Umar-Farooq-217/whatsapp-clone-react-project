@@ -1,14 +1,15 @@
-import React, { useContext } from 'react'
+// import React, { useContext } from 'react'
 import Dialog from '@mui/material/Dialog';
 import { Box, List, ListItem,  Typography } from '@mui/material';
 import {qrCodeImage} from '../../../constants/Constants'
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
-import { AccountContext } from '../../context/AccountProvider';
+// import { AccountContext } from '../../context/AccountProvider';
 const dialogStyle = {
-  height:"70%",
+  height:"90%",
+  width:'90%',
   // minWidth:'800px',
-  boxShadow:'none',
+  boxShadow:'5px',
   // maxWidth:'95%',
   overflow:'hidden',
   // width:"clamp(900px,80%)"
@@ -16,12 +17,12 @@ const dialogStyle = {
 }
 
 export default function LoginDetails() {
-  const {setAccount} = useContext(AccountContext)
+  // const {setAccount} = useContext(AccountContext)
   const onLoginSuccess = (res)=>{
     const token = res?.credential; 
     try {
       const decode = jwtDecode(token);
-      setAccount(decode)
+      // setAccount(decode)
       console.log(decode);
     } catch (error) {
       console.error('Error decoding token:', error.message);
@@ -35,8 +36,8 @@ console.log("On Error " , res);
   return (
     <div >
      
-     <Dialog className=' border border-red-600 backdrop:shadow(none)'
-     open={true} PaperProps={{sx:dialogStyle}}>
+     <Dialog
+     open={true} PaperProps={{sx:dialogStyle}} hideBackdrop={true}>
       <Box className='grid md:grid-cols-2 w-full'>
         <Box className='p-8'>
       <Typography sx={{fontSize:'25px',fontWeight:'bold',textWrap:'balance'}} >Log into WhatsApp Web</Typography>
