@@ -17,27 +17,34 @@ export default function Messenger() {
    
     
   return (
-    <div>
-       <>
-    <AccountData>
+    <>
+       
    <GoogleOAuthProvider clientId={clientId}>
+    <AccountData>
     {
       account ? 
+      (
+        <Chat/>
+      )
      
-      <Chat/>
+    
    : 
+   (
+
+   
+   <>
    <Header>
    <Box className='flex justify-start items-center pl-20 pt-6'>
      <img src={whatsapp} className='' width={30} height={30} alt='whatsapp pic'/>
      <Typography sx={{fontSize:'20px', fontWeight:'bold',paddingLeft:'9px'}}>Web Whatsapp</Typography>
    </Box>
-   <LoginDetails/>
   </Header>
+   <LoginDetails/></>)
   }
-    </GoogleOAuthProvider>;
    </AccountData>
+    </GoogleOAuthProvider>;
 
-   </>
-    </div>
+  
+    </>
   )
 }
