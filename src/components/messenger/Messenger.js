@@ -3,7 +3,7 @@ import { AppBar, styled, Box, Typography } from '@mui/material';
 import whatsapp from '../../images/whatsapp.svg'
 import LoginDetails from '../../components/account/loginDetails/LoginDetails';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import AccountData, { AccountContext } from '../context/AccountData';
+import  { AccountContext } from '../context/AccountData';
 import Chat from '../chat/Chat';
 const Header = styled(AppBar)`
 height:200px;
@@ -20,7 +20,7 @@ export default function Messenger() {
     <>
        
    <GoogleOAuthProvider clientId={clientId}>
-    <AccountData>
+   
     {
       account ? 
       (
@@ -41,7 +41,7 @@ export default function Messenger() {
   </Header>
    <LoginDetails/></>)
   }
-   </AccountData>
+  
     </GoogleOAuthProvider>;
 
   
