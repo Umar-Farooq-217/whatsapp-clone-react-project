@@ -38,7 +38,7 @@ console.log("On Error " , res);
     <div >
      
      <Dialog
-     open={true} PaperProps={{sx:dialogStyle}} hideBackdrop={true} maxWidt={false} >
+     open={true} PaperProps={{sx:dialogStyle}} hideBackdrop={true} maxWidth={false} >
       <Box className='grid md:grid-cols-2 w-full'>
         <Box className='p-8'>
       <Typography sx={{fontSize:'25px',fontWeight:'bold',textWrap:'balance'}} >Log into WhatsApp Web</Typography>
