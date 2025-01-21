@@ -5,18 +5,26 @@ import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 export default function Header() {
     const { account } = useContext(AccountContext)
-    const [open, setOpen] = useState(false)
+    const [anchorE1, setAnchorE1] = useState(null)
+    const [openProfile,setOpenProfile] = useState(false)
     const handleClose = () => {
-        setOpen(false)
+        setAnchorE1(null)
     }
-    const handleClick = () => {
-        setOpen(true)
+    const handleClick = (e) => {
+        setAnchorE1(e.currentTarget)
+    }
+    const open = Boolean(anchorE1)
+    const openProfileHandler = ()=>{
+        setOpenProfile(true)
+    }
+    const closeProfileHandler = ()=>{
+        setOpenProfile(false)
     }
     return (
         <>
             <Box className='flex justify-between items-center bg-gray-100 py-4 px-2'>
                 <Box>
-                    <img src={account.picture} alt="dp" className='w-[35px] h-[35px] rounded-full' />
+                    <img src={account.picture} alt="dp" className='w-[35px] h-[35px] ml-2 rounded-full' />
 
                 </Box>
                 <Box className='flex gap-4'>
@@ -28,15 +36,13 @@ export default function Header() {
                     <Box>
                         <ChatIcon  />
                     </Box>
-                    <Box>
+                    <Box className='relative'>
                         <MoreVertIcon  onClick={handleClick} />
-                        <Menu open={open} onClose={handleClose} keepMounted anchorOrigin={{
+                        <Menu open={open} onClose={handleClose} keepMounted anchorEl={open}  anchorOrigin={{
                             vertical: 'bottom',
-                            horizontal: 'left'
-                        }} transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                          }} >
+                            horizontal: 'center'
+                        }} 
+                        >
                             <MenuItem className='font-bold px-3'>Profile</MenuItem>
                         </Menu>
                     </Box>
