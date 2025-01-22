@@ -1,17 +1,19 @@
-import { Box, Menu, MenuItem, styled } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import { Box } from '@mui/material'
+import React, { useContext,useState} from 'react'
 import { AccountContext } from '../context/AccountData'
 import ChatIcon from '@mui/icons-material/Chat';
 import HeaderMenu from './HeaderMenu';
+import MyDrawer from './MyDrawer';
 export default function Header() {
     const { account } = useContext(AccountContext)
+    // const [open,setOpen] = useState(null)
    
     
     return (
         <>
             <Box className='flex justify-between items-center bg-gray-100 py-4 px-2'>
                 <Box>
-                    <img src={account.picture} alt="dp" className='w-[35px] h-[35px] ml-2 rounded-full' />
+                    <img src={account.picture} alt="dp" className='w-[30px] h-[30px] ml-2 rounded-full' />
 
                 </Box>
                 <Box className='flex gap-4'>
@@ -26,6 +28,7 @@ export default function Header() {
                    <HeaderMenu/>
                 </Box>
             </Box>
+            <MyDrawer/>
         </>
     )
 }
