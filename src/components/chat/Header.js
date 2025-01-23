@@ -13,7 +13,7 @@ export default function Header() {
         <>
             <Box className='flex justify-between items-center bg-gray-100 py-4 px-2'>
                 <Box>
-                    <img src={account.picture} alt="dp" onClick={()=>setOpenDrawer(true)} className='w-[30px] h-[30px] ml-2 rounded-full' />
+                    <img src={account.picture} alt="dp" onClick={()=>setOpenDrawer(true)} className='w-[35px] h-[35px] ml-2 rounded-full' />
 
                 </Box>
                 <Box className='flex gap-4'>
