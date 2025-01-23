@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Drawer } from '@mui/material';
-export default function MyDrawer() {
+export default function MyDrawer({open, setOpen}) {
   
-  const handleClose = (prop)=>{
-    setOpen(null)
+  const handleClose = ()=>{
+    setOpen(false)
+  }
+  const drawerStyle = {
+    left:32,top:23,width:"25%",
   }
   return (
     
-      <Drawer open={props.open} onClose={handleClose}>
-
+      <Drawer className='' style={{zIndex:1500}} PaperProps={{sx:drawerStyle}} open={open} onClose={handleClose}>
+hello
       </Drawer>
     
   )

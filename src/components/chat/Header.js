@@ -6,14 +6,14 @@ import HeaderMenu from './HeaderMenu';
 import MyDrawer from './MyDrawer';
 export default function Header() {
     const { account } = useContext(AccountContext)
-    // const [open,setOpen] = useState(null)
+    const [openDrawer,setOpenDrawer] = useState(false)
    
     
     return (
         <>
             <Box className='flex justify-between items-center bg-gray-100 py-4 px-2'>
                 <Box>
-                    <img src={account.picture} alt="dp" className='w-[30px] h-[30px] ml-2 rounded-full' />
+                    <img src={account.picture} alt="dp" onClick={()=>setOpenDrawer(true)} className='w-[30px] h-[30px] ml-2 rounded-full' />
 
                 </Box>
                 <Box className='flex gap-4'>
@@ -28,7 +28,7 @@ export default function Header() {
                    <HeaderMenu/>
                 </Box>
             </Box>
-            <MyDrawer/>
+            <MyDrawer open={openDrawer} setOpen={setOpenDrawer} />
         </>
     )
 }
