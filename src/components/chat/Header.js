@@ -25,7 +25,7 @@ export default function Header() {
                     <Box>
                         <ChatIcon sx={{width:'20px',height:'20px',marginBottom:'3px'}} />
                     </Box>
-                   <HeaderMenu/>
+                   <HeaderMenu setOpenDrawer={setOpenDrawer} />
                 </Box>
             </Box>
             <MyDrawer open={openDrawer} setOpen={setOpenDrawer} />
