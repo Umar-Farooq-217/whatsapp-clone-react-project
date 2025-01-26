@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppBar, Box, Drawer, Toolbar, Typography } from '@mui/material';
+import { Box, Drawer,  Typography } from '@mui/material';
 import { AccountContext } from '../context/AccountData';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 export default function MyDrawer({open, setOpen}) {
@@ -13,7 +13,7 @@ export default function MyDrawer({open, setOpen}) {
   return (
     
       <Drawer  className='' style={{zIndex:1500}} PaperProps={{sx:drawerStyle}} open={open} onClose={handleClose}>
-        <Box  sx={{backgroundColor:'#00A783',height:'102px',color:'white',display:'flex',gap:5 ,alignItems:'end',paddingLeft:5,paddingBottom:2}}>
+        <Box  sx={{backgroundColor:'#00A783',height:'102px',color:'white',display:'flex',gap:3 ,alignItems:'end',paddingLeft:5,paddingBottom:2}}>
           <ArrowBackIcon onClick={handleClose} sx={{fontSize:'25px',fontWeight:600}}/>
           <Typography sx={{fontSize:"16px",fontWeight:600}}>Profile</Typography>
         </Box>

@@ -1,6 +1,7 @@
 import { AppBar, Box, Dialog, Toolbar } from '@mui/material'
 import React from 'react'
 import Header from './Header'
+import EmptyChat from '../emptyChat/EmptyChat'
 
 const dialogStyle = {
  height:"100%",
@@ -27,7 +28,8 @@ export default function Chat() {
       <Box className='min-w-[400px]'>
        <Header/>
       </Box>
-      <Box className='min-w-[300px]'>right box</Box></Box>
+      <EmptyChat/>
+      </Box>
       </Dialog>
 
    </Box>
