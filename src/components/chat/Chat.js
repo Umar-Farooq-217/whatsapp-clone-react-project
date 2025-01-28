@@ -1,6 +1,7 @@
 import { AppBar, Box, Dialog, Toolbar } from '@mui/material'
 import React from 'react'
 import Header from './Header'
+import SearchIcon from '@mui/icons-material/Search';
 import EmptyChat from '../emptyChat/EmptyChat'
 
 const dialogStyle = {
@@ -27,6 +28,10 @@ export default function Chat() {
         <Box className='flex max-w-[1500px]'>
           <Box className='min-w-[400px]'>
             <Header />
+            <Box className='bg-gray-600'>
+<SearchIcon/>
+<input type="text"  />
+            </Box>
           </Box>
           <EmptyChat />
         </Box>
