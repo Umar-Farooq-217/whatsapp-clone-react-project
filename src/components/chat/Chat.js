@@ -28,9 +28,9 @@ export default function Chat() {
         <Box className='flex max-w-[1500px]'>
           <Box className='min-w-[400px]'>
             <Header />
-            <Box className='bg-gray-600'>
-<SearchIcon/>
-<input type="text"  />
+            <Box className='bg-gray-100 m-2  '>
+<SearchIcon className='text-gray-500 text-sm p-2'/>
+<input type="text" placeholder='Search or start new chat' className='bg-gray-100 outline-none text-sm'  />
             </Box>
           </Box>
           <EmptyChat />
