@@ -26,7 +26,7 @@ export default function MyDrawer({open, setOpen}) {
           <Typography className='font-bold pt-3'>{account.name}</Typography>
         </Box>
         <Box>
-          <Typography className='text-gray-500 text-sm px-6 py-4 '>This is not your UserName or Pin . This name will be visible to your Whatsapp Contacts</Typography>
+          <Typography className='text-gray-500 text-[10px] px-6 py-4 bg-[#F0F2F5] '>This is not your UserName or Pin . This name will be visible to your Whatsapp Contacts</Typography>
 
         </Box>
         <Box className='shadow-lg px-6 py-4'>
