@@ -5,6 +5,7 @@ import {qrCodeImage} from '../../../constants/Constants'
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { AccountContext } from '../../context/AccountData'; 
+import { addUser } from '../../services/api';
 const dialogStyle = {
   height:"80%",
   minWidth:'95%',
@@ -17,13 +18,14 @@ const dialogStyle = {
 
 }
 
-export default function LoginDetails() {
+export default  function LoginDetails() {
   const {setAccount} = useContext(AccountContext)
-  const onLoginSuccess = (res)=>{
+  const onLoginSuccess =async (res)=>{
     const token = res?.credential; 
     try {
       const decode = jwtDecode(token);
       setAccount(decode)
+    await  addUser(decode)
       console.log(decode)
     } catch (error) {
       console.error('Error decoding token:', error.message);
