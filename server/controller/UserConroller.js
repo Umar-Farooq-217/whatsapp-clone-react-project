@@ -1,6 +1,8 @@
-import User from "../model/User"
+import User from "../model/User.js"
 
 export const addUser = async(res,req)=>{
+    console.log("Received Data:", req.body);
+
     try {
         let exist = await User.findOne({
             sub:req.body.sub

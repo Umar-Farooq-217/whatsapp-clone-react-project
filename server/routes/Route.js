@@ -1,7 +1,7 @@
 import express from 'express'
+import { addUser } from '../controller/UserConroller.js';
 
-const Route  = express.Router()
-Route.post('/add',()=>{console.log('end point');
-})
+const router  = express.Router()
+router.post('/add',addUser)
 
-export default Route;
+export default router;
