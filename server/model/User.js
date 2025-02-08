@@ -38,11 +38,10 @@ iat:{
 nbf:{
     type: Number
  },
-
-
-
 })
 
+const User = mongoose.model('users',userSchema)
+export default User
 
 
 
