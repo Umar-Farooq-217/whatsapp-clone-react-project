@@ -5,7 +5,7 @@ import {qrCodeImage} from '../../../constants/Constants'
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { AccountContext } from '../../context/AccountData'; 
-import { addUser } from '../../services/api';
+import { addUser } from '../../../services/api';
 const dialogStyle = {
   height:"80%",
   minWidth:'95%',
