@@ -1,6 +1,6 @@
 import User from "../model/User.js"
 
-export const addUser = async(res,req)=>{
+export const addUser = async(req,res)=>{
     console.log("Received Data:", req.body);
 
     try {

@@ -1,10 +1,8 @@
 import axios from 'axios'
 export const addUser = async(data)=>{
-    const url = 'http://localhost:3000'
+    const url = 'http://localhost:8000'
     try {
-     const response =  await  axios.post(`${url}/add`,data, {
-        headers: { 'Content-Type': 'application/json' } 
-    })
+     const response =  await  axios.post(`${url}/add`,data)
      console.log('add user', response.data);
      
     } catch (error) {
