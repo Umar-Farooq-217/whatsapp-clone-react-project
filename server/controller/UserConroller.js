@@ -19,3 +19,12 @@ export const addUser = async(req,res)=>{
     }
     
 }
+
+
+export const getUsers = async (req , res)=>{
+try {
+    let user = await User.find({})
+} catch (error) {
+    return response.status(500).json(error.message)
+}
+}
