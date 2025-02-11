@@ -8,7 +8,7 @@ export const addUser = async(req,res)=>{
             sub:req.body.sub
         })
         if(exist){
-            res.status(200).json({msg:'use exis'})
+            res.status(200).json({msg:'user exist'})
             return
         }
         const newUser = new User(req.body)
@@ -23,8 +23,9 @@ export const addUser = async(req,res)=>{
 
 export const getUsers = async (req , res)=>{
 try {
-    let user = await User.find({})
+    let users = await User.find({})
+    return res.status(200).json(users)
 } catch (error) {
-    return response.status(500).json(error.message)
+    return res.status(500).json(error.message)
 }
 }
