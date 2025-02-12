@@ -19,7 +19,7 @@ export default function Conversations() {
    {
     users.map((user)=>{
         return(
-            <Conversation/>
+            <Conversation users={user}/>
         )
     })
    }
