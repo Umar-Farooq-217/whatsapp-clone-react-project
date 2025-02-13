@@ -9,6 +9,7 @@ export default function Conversations() {
     useEffect(()=>{
      const fetchData = async()=>{
         let response = await getUsers()
+       
         setUsers(response)
 
      }
@@ -20,9 +21,8 @@ export default function Conversations() {
    {
 
     users.map(user => (
-      user.sub !== account.sub
-&& <Conversation users={user}    )
-    )
+      user.sub !== account.sub && <Conversation users={user}    />
+    ) )
    }
     </>
   )
