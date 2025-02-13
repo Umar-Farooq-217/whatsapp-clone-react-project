@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Box } from '@mui/material'
-import Conversation from './Conversation'
-import { getUsers } from '../../services/api'
+import React, { useEffect, useState ,useContext} from 'react'
+import Conversation from './Conversation.js'
+import { getUsers } from '../../services/api.js'
+import {AccountContext} from '../context/AccountData.js'
 
 export default function Conversations() {
+  const [account] = useContext(AccountContext)
     const [users, setUsers]= useState([])
     useEffect(()=>{
      const fetchData = async()=>{
@@ -17,11 +18,11 @@ export default function Conversations() {
   return (
     <>
    {
-    users.map((user)=>{
-        return(
-            <Conversation users={user}/>
-        )
-    })
+
+    users.map(user => (
+      user.sub !== account.sub
+&& <Conversation users={user}    )
+    )
    }
     </>
   )
