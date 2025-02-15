@@ -4,6 +4,9 @@ export const addUser = async(req,res)=>{
     console.log("Received Data:", req.body);
 
     try {
+        if (!req.body.name || !req.body.email || !req.body.picture) {
+            return res.status(400).json({ error: "Missing required fields" });
+          }
         let exist = await User.findOne({
             sub:req.body.sub
         })

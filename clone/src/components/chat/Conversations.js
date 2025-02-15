@@ -6,24 +6,25 @@ import {AccountContext} from '../context/AccountData.js'
 export default function Conversations() {
   const [account] = useContext(AccountContext)
     const [users, setUsers]= useState([])
-    useEffect(()=>{
-     const fetchData = async()=>{
-        let response = await getUsers()
-       
-        setUsers(response)
-
-     }
-     fetchData()
-    },[])
+    useEffect(() => {
+      const fetchData = async () => {
+        let response = await getUsers();
+        
+        console.log("fetchData response:", response);
+        console.log("Type of response:", typeof response);
+        
+        // Ensure response is an array
+        setUsers(Array.isArray(response) ? response : []);
+      };
+      
+      fetchData();
+    }, []);
 
   return (
     <>
-   {
-
-    users.map(user => (
-      user.sub !== account.sub && <Conversation users={user}    />
-    ) )
-   }
+   {Array.isArray(users) && users.map(user => 
+        user.sub !== account.sub && <Conversation key={user.sub} users={user} />
+      )}
     </>
   )
 }
