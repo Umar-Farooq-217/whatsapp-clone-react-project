@@ -26,7 +26,7 @@ export default  function LoginDetails() {
       const decode = jwtDecode(token);
       setAccount(decode)
     await  addUser(decode)
-      console.log(decode)
+      // console.log(decode)
     } catch (error) {
       console.error('Error decoding token:', error.message);
     }

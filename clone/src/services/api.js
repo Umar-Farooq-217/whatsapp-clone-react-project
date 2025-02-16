@@ -20,7 +20,8 @@ export const getUsers = async()=>{
         
     } catch (error) {
         console.log('error during getUsers',error);
-        return []
+       
 
     }
 }
+
