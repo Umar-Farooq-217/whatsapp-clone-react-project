@@ -1,6 +1,7 @@
-import React, { useEffect, useState ,useContext} from 'react'
-import Conversation from './Conversation.js'
+import React, { useEffect, useState } from 'react'
+// import Conversation from './Conversation.js'
 import { getUsers } from '../../services/api.js'
+import { Box,Typography,Divider } from '@mui/material';
 // import {AccountContext} from '../context/AccountData.js'
 
 export default function Conversations() {
@@ -31,9 +32,21 @@ export default function Conversations() {
         <Conversation key={user.sub} users={user} />
       ) */
       users.map((user)=>{
+
         return (
           <>
-          <Conversation user={user}/>
+           <Box sx={{display:'flex',padding:'5px 3px'}} className='hover:bg-gray-100'>
+      <Box className=''>
+        <img src={user.picture} alt="dp"  className='rounded-full px-1 py-1' width={60} />
+      </Box>
+      <Box className='flex-1 pl-3'>
+        <Typography>{user.name}</Typography>
+      <Divider className='pt-8 border-gray-100'/>
+
+      </Box>
+    </Box>
+    
+          {/* <Conversation user={user}/> */}
           </>
         )
       })
