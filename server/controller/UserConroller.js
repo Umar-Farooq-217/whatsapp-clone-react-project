@@ -24,4 +24,11 @@ export const addUser = async(req,res)=>{
 }
 
 
-
+export const getUsers = async(req , res)=>{
+    try {
+        let response = await User.find()
+        return res.status(200).json(response)
+    } catch (error) {
+        return res.status(500).json('GETUser  ',error.message)
+    }
+}
