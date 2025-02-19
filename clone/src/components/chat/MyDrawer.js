@@ -8,7 +8,7 @@ export default function MyDrawer({open, setOpen}) {
     setOpen(false)
   }
   const drawerStyle = {
-    left:32,top:23,width:"26%",marginBottom:'34px',height:639,boxShadow:'1px'
+    left:32,top:23,width:"26%", height: 'calc(100% - 62px)',boxShadow:'1px'
   }
   return (
     

@@ -3,7 +3,6 @@ import React from 'react'
 import Header from './Header'
 import SearchIcon from '@mui/icons-material/Search';
 import EmptyChat from '../emptyChat/EmptyChat'
-import Conversations from './Conversations';
 
 const dialogStyle = {
   height: "100%",
@@ -34,7 +33,7 @@ export default function Chat() {
 <input type="text" placeholder='Search or start new chat' className='bg-gray-100 outline-none text-sm
  font-semibold  p-[5px] ml-7 '  />
             </Box>
-          <Conversations/>  
+        
           </Box>
           <EmptyChat />
         </Box>
