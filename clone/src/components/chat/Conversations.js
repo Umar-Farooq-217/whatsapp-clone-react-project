@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { getUsers } from '../../services/api'
-import { Box, Typography } from '@mui/material'
+// import { Box, Typography } from '@mui/material'
 import { AccountContext } from '../context/AccountData'
 import Conversation from './Conversation'
 
@@ -27,9 +27,11 @@ export default function Conversations() {
   return (
     <div>
       {
-        users.map((user)=>(
-            <Conversation user={user} />
+        users.map(user => (
+    user.sub !== account.sub &&
+          <Conversation user={user} />
         )
+        
         
         )
       }
