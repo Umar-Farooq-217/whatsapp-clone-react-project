@@ -5,7 +5,7 @@ import ComputerIcon from '@mui/icons-material/Computer';
 import LockIcon from '@mui/icons-material/Lock';
 export default function EmptyChat() {
   return (
-    <Box sx={{width:'100%',height:'100%', backgroundColor:'#F8FAFB'}} >
+    <Box sx={{width:'100%',height:'92vh', backgroundColor:'#F8FAFB'}} >
    <img src={emptyChatImage} alt="EmptyChatImage" className='w-[400px] flex m-auto pt-36 ' />
    <Typography sx={{textAlign:'center',fontSize:'30px',color:'#41525d'}}> WhatsApp Web</Typography>
    <Typography sx={{color:'#41525d',textAlign:'center',paddingTop:2}}>Now send and recieve messages online without keeping your phone online.</Typography>
@@ -19,7 +19,7 @@ export default function EmptyChat() {
         <LockIcon sx={{color:'#41525d',width:20,marginRight:2}} />
         <Typography sx={{color:'#41525d',textAlign:'center'}}>End to End encryptedl.</Typography>
       </Box>
-     <Box className='h-1 w-full bg-[#00A783] mt-8 mb-44'></Box>
+     <Box className='h-1 w-full bg-[#00A783] mt-8 '></Box>
     </Box>
   )
 }
