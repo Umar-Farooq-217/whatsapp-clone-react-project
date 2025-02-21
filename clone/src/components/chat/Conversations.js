@@ -3,6 +3,7 @@ import { getUsers } from '../../services/api'
 // import { Box, Typography } from '@mui/material'
 import { AccountContext } from '../context/AccountData'
 import Conversation from './Conversation'
+import { Box } from '@mui/material'
 
 export default function Conversations() {
     const [users, setUsers]= useState([])
@@ -25,7 +26,7 @@ export default function Conversations() {
 
 
   return (
-    <div>
+    <Box sx={{height:'79vh'  , overflowY:'auto'}}>
       {
         users.map(user => (
     user.sub !== account.sub &&
@@ -35,6 +36,6 @@ export default function Conversations() {
         
         )
       }
-    </div>
+    </Box>
   )
 }
