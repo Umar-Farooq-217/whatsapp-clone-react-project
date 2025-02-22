@@ -4,6 +4,7 @@ import Header from './Header'
 import EmptyChat from '../emptyChat/EmptyChat'
 import Conversations from './Conversations';
 import Search from './Search';
+import ChatBox from '../chatBox/ChatBox';
 
 const dialogStyle = {
   height: "100%",
@@ -32,7 +33,8 @@ export default function Chat() {
             <Search/>
         <Conversations/>
           </Box>
-          <EmptyChat />
+          <ChatBox/>
+          {/* <EmptyChat /> */}
         </Box>
       </Dialog>
 
