@@ -7,8 +7,8 @@ export default function Search() {
     <Box className='bg-gray-100 m-2 rounded-2xl  '>
 
 <SearchIcon className='text-gray-400  text-[16px] p-[1px] ml-4'/>
-<input type="text" placeholder='Search or start new chat' className='bg-gray-100 outline-none text-sm
- font-semibold py-2 ml-7 '  />
+<input type="text" placeholder='Search or start new chat' className='bg-gray-100 outline-none text-lg
+ font-semibold py-1 ml-7 '  />
             </Box>
   )
 }

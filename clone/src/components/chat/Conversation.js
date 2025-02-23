@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Box, Typography } from '@mui/material'
+import { AccountContext } from '../context/AccountData'
 export default function Conversation({user}) {
+  const {setPerson} = useContext(AccountContext)
+  const userHandler = ()=>{
+    setPerson(user)
+  }
   return (
-    <Box  className='flex px-4  rounded-md  py-3 hover:bg-gray-100 cursor-pointer '>
+    <Box  className='flex px-4  rounded-md  py-3 hover:bg-gray-100 cursor-pointer ' onClick={()=>userHandler()}>
         <Box className=''>
           <img className='w-14 rounded-full' src={user.picture} alt="dp"   />
 

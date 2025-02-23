@@ -1,10 +1,12 @@
 import { AppBar, Box, Dialog, Toolbar } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from './Header'
 import EmptyChat from '../emptyChat/EmptyChat'
 import Conversations from './Conversations';
 import Search from './Search';
 import ChatBox from '../chatBox/ChatBox';
+import { AccountContext } from '../context/AccountData';
+
 
 const dialogStyle = {
   height: "100%",
@@ -17,6 +19,7 @@ const dialogStyle = {
 
 }
 export default function Chat() {
+  const {person} = useContext(AccountContext)
 
 
   return (
@@ -33,8 +36,8 @@ export default function Chat() {
             <Search/>
         <Conversations/>
           </Box>
-          <ChatBox/>
-          {/* <EmptyChat /> */}
+          {Object.keys(person) ? <ChatBox/> : <EmptyChat/> }
+        
         </Box>
       </Dialog>
 
