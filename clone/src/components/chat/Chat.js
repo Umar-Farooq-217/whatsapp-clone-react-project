@@ -27,8 +27,8 @@ export default function Chat() {
         </Toolbar>
       </AppBar>
       <Dialog open={true} PaperProps={{ sx: dialogStyle }} hideBackdrop={true} maxWidth={false}>
-        <Box className='flex max-w-[2000px]'>
-          <Box className='min-w-[400px]'>
+        <Box className='flex max-w-[2000px] '>
+          <Box className='min-w-[400px]  '>
             <Header />
             <Search/>
         <Conversations/>

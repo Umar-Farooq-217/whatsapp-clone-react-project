@@ -14,7 +14,7 @@ export default function HeaderMenu({setOpenDrawer}) {
   
   return (
     <Box >
-      <MoreVertIcon onClick={handleClick} />
+      <MoreVertIcon onClick={handleClick} sx={{fontSize:'30px'}} />
       <Menu open={openMenu} onClose={handleClose} keepMounted anchorEl={openMenu} anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'center'
