@@ -30,13 +30,13 @@ export default function Chat() {
         </Toolbar>
       </AppBar>
       <Dialog open={true} PaperProps={{ sx: dialogStyle }} hideBackdrop={true} maxWidth={false}>
-        <Box className='flex max-w-[2000px] '>
+        <Box className='flex max-w-[2000px] overflow-hidden'>
           <Box className='min-w-[400px]  '>
             <Header />
             <Search/>
         <Conversations/>
           </Box>
-          {Object.keys(person) ? <ChatBox/> : <EmptyChat/> }
+          {Object.keys(person).length ? <ChatBox/> : <EmptyChat/> }
         
         </Box>
       </Dialog>

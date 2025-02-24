@@ -11,9 +11,9 @@ export default function Header() {
     
     return (
         <>
-            <Box className='flex justify-between items-center bg-gray-100 py-2 px-2'>
+            <Box className='flex justify-between items-center bg-gray-100 py-3 px-2'>
                 <Box>
-                    <img src={account.picture} alt="dp" onClick={()=>setOpenDrawer(true)} className='w-[50px] h-[50px] ml-2 rounded-full' />
+                    <img src={account.picture} alt="dp" onClick={()=>setOpenDrawer(true)} className='w-12  ml-2 rounded-full' />
 
                 </Box>
                 <Box className='flex items-center gap-4'>
