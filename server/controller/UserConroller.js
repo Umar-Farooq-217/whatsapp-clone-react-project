@@ -1,7 +1,7 @@
 import User from "../model/User.js"
 
 export const addUser = async(req,res)=>{
-    console.log("Received Data:", req.body);
+   
 
     try {
         if (!req.body.name || !req.body.email || !req.body.picture) {

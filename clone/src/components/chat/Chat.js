@@ -1,5 +1,5 @@
 import { AppBar, Box, Dialog, Toolbar } from '@mui/material'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Header from './Header'
 import EmptyChat from '../emptyChat/EmptyChat'
 import Conversations from './Conversations';
@@ -20,7 +20,7 @@ const dialogStyle = {
 }
 export default function Chat() {
   const {person} = useContext(AccountContext)
-
+const [text,setText] = useState('')
 
   return (
     <Box>
@@ -33,8 +33,8 @@ export default function Chat() {
         <Box className='flex max-w-[2000px] overflow-hidden'>
           <Box className='min-w-[400px]  '>
             <Header />
-            <Search/>
-        <Conversations/>
+            <Search setText={setText} />
+        <Conversations text={text} />
           </Box>
           {Object.keys(person).length ? <ChatBox/> : <EmptyChat/> }
         

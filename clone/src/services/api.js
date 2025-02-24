@@ -24,3 +24,14 @@ return response.data
        
     }
 }
+
+export const newConversation =async(data)=>{
+    try {
+        let response = await axios.post(`${url}/conversation/add`,data)
+        console.log('newConversation' , response);
+        
+    } catch (error) {
+        console.log('error during newConversation', error);
+        
+    }
+}

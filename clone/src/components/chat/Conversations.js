@@ -5,23 +5,20 @@ import { AccountContext } from '../context/AccountData'
 import Conversation from './Conversation'
 import { Box } from '@mui/material'
 
-export default function Conversations() {
+export default function Conversations({text}) {
     const [users, setUsers]= useState([])
     const {account} = useContext(AccountContext)
 
     useEffect(()=>{
         const fetchData = async()=>{
             let response = await getUsers()
-            console.log('response fron conversations , ' , response);
-            // if (Array.isArray(response)) {
-            //     const filteredUsers = response.filter(user => user.sub !== account.sub) 
-            //     setUser(filteredUsers)
-            // }
-                setUsers(response)
+       let filteredRespose = response.filter(user => user.name.toLowerCase().includes(text.toLowerCase()))
+            
+                setUsers(filteredRespose)
             
         } 
         fetchData()
-    },[])
+    },[text])
 
 
 
