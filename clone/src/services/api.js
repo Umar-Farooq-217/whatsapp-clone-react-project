@@ -35,13 +35,16 @@ export const newConversation =async(data)=>{
         
     }
 }
+
+
+
 export const getConversation =async(data)=>{
     try {
         let response = await axios.post(`${url}/conversation/get`,data)
         return response.data
         
     } catch (error) {
-        console.log('error during getConversation', error);
+        console.log('error during getConversation', error.message);
         
     }
 }

@@ -12,7 +12,7 @@ const conversationSchema = new mongoose.Schema({
     }
 },
     {
-        timestamp: true
+        timestamps: true
     })
 const Conversation = mongoose.model('Conversation',conversationSchema)
 export default Conversation;

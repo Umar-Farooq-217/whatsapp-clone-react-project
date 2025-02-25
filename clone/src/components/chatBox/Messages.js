@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { messagesBackground } from '../../constants/Constants'
 import Footer from './Footer'
 import { AccountContext } from '../context/AccountData'
@@ -7,11 +7,15 @@ export default function Messages({person}) {
   const {account} = useContext(AccountContext)
   
     const sendText = (e)=>{
-    console.log(e);
+   
     const code = e.keyCode || e.which
      if(code === 13){
-  const senderId = account.sub;
-  const receiverId = person.sub;
+  let message = {
+    senderId : account.sub , 
+    receiverId : person.sub
+  }
+
+  
      }
     
     }
