@@ -3,24 +3,24 @@ import Header from './Header';
 import Messages from './Messages';
 import { Box } from '@mui/material';
 import { AccountContext } from '../context/AccountData';
-import { getConversation } from '../../services/api';
+// import { getConversation } from '../../services/api';
 
 export default function ChatBox() {
-  const { person, account } = useContext(AccountContext);
+  const { person,  } = useContext(AccountContext);
 
-  useEffect(() => {
-    const getConversationDetails = async () => {
+  // useEffect(() => {
+  //   const getConversationDetails = async () => {
 
-      try {
-        const  data = await getConversation({ senderId: account.sub, receiverId: person.sub });
-        console.log('Conversation Data:', data);
-      } catch (error) {
-        console.error('Error fetching conversation:', error);
-      }
-    };
+  //     try {
+  //       const  data = await getConversation({ senderId: account.sub, receiverId: person.sub });
+  //       console.log('Conversation Data:', data);
+  //     } catch (error) {
+  //       console.error('Error fetching conversation:', error);
+  //     }
+  //   };
 
-    getConversationDetails();
-  }, [person.sub,account.sub]);
+  //   getConversationDetails();
+  // }, [person.sub,account.sub]);
 
   return (
     <Box sx={{ width: '100%' }}>
