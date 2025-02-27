@@ -23,8 +23,8 @@ export default function Messages({person}) {
     <>
     <Box className='w-full h-[100%] overflow-y-auto  bg-contain bg-[50%]'   style={{backgroundImage:`url(${messagesBackground})`}}>
      
-    <Footer  />
     </Box>
+    <Footer  />
     </>
   )
 }
