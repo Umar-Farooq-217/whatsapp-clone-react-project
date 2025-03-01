@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 import React from 'react'
 import { messagesBackground } from '../../constants/Constants'
 import Footer from './Footer'
+import Header from './Header'
 // import { AccountContext } from '../context/AccountData'
 export default function Messages({person}) {
   // const {account} = useContext(AccountContext)
@@ -19,12 +20,14 @@ export default function Messages({person}) {
   //    }
     
   //   }
+  
   return (
-    <>
-    <Box className='w-full h-[100%] overflow-y-auto  bg-contain bg-[50%]'   style={{backgroundImage:`url(${messagesBackground})`}}>
+    <Box className='h-full flex flex-col '>
+    <Header person={person} />
+    <Box className='w-full h-[100%] overflow-y-auto flex-1    bg-contain bg-[50%]'   style={{backgroundImage:`url(${messagesBackground})`}}>
      
     </Box>
     <Footer  />
-    </>
+    </Box>
   )
 }

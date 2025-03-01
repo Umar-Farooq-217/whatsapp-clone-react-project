@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import Header from './Header';
+import React, { useContext } from 'react';
 import Messages from './Messages';
 import { Box } from '@mui/material';
 import { AccountContext } from '../context/AccountData';
@@ -24,7 +23,7 @@ export default function ChatBox() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Header person={person} />
+      
       <Messages person={person} />
     </Box>
   );
