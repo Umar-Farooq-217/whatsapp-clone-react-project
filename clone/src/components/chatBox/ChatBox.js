@@ -22,7 +22,7 @@ export default function ChatBox() {
   // }, [person.sub,account.sub]);
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', height:'100%' }}>
       
       <Messages person={person} />
     </Box>

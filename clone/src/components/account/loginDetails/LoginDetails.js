@@ -37,7 +37,7 @@ console.log("On Error " , res);
 
   }
   return (
-    <div >
+    < >
      
      <Dialog
      open={true} PaperProps={{sx:dialogStyle}} hideBackdrop={true} maxWidth={false} >
@@ -62,6 +62,6 @@ setting : and select
 
       </Box>
      </Dialog>
-    </div>
+    </>
   )
 }

@@ -23,7 +23,7 @@ export default function Conversations({text}) {
 
 
   return (
-    <Box sx={{height:'79vh'  , overflowY:'auto'}}>
+    <Box sx={{height:'100%'  , overflowY:'auto'}}>
       {
         users.map(user => (
     user.sub !== account.sub &&

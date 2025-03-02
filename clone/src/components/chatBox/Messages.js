@@ -7,9 +7,11 @@ import Header from './Header'
 export default function Messages({person}) {
   // const {account} = useContext(AccountContext)
   
-  //   const sendText = (e)=>{
+    const sendText = (e)=>{
    
-  //   const code = e.keyCode || e.which
+    const code = e.keyCode || e.which;
+    console.log('code ', code);
+    
   //    if(code === 13){
   // let message = {
   //   senderId : account.sub , 
@@ -19,7 +21,7 @@ export default function Messages({person}) {
   
   //    }
     
-  //   }
+    }
   
   return (
     <Box className='h-full flex flex-col '>
@@ -27,7 +29,7 @@ export default function Messages({person}) {
     <Box className='w-full h-[100%] overflow-y-auto flex-1    bg-contain bg-[50%]'   style={{backgroundImage:`url(${messagesBackground})`}}>
      
     </Box>
-    <Footer  />
+    <Footer sendText={sendText} />
     </Box>
   )
 }
