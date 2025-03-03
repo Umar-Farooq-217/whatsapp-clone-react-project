@@ -21,3 +21,15 @@ export const newConversation = async (req, res) => {
         return res.status(500).json({ error: 'Error during conversation API', message: error.message });
     }
 };
+
+
+export const getConversation = async(req , res)=>{
+    try {
+        let senderId = req.body.senderId;
+        let receiverId = req.body.receiverId
+
+        let conversation = await findOne({ members : { $all : [senderId,receiverId]}})
+    } catch (error) {
+        
+    }
+}
