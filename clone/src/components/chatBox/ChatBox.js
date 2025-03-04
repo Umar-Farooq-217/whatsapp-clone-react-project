@@ -23,11 +23,16 @@ export default function ChatBox() {
   // }, [person.sub,account.sub]);
 
   useEffect(()=>{
-    const getConversationDetails = async ()=>{
-      let data = await getConversation({senderId:account.sub, receiverId:person.sub})
+    try {
+      const getConversationDetails = async ()=>{
+        let data = await getConversation({senderId:account.sub, receiverId:person.sub})
+        console.log('getconversation api data ', data)
+      };
+      getConversationDetails()
+    } catch (error) {
+      console.log('getconversation , ' , error);
       
-    };
-    getConversationDetails()
+    }
   },[])
 
   return (
