@@ -1,25 +1,26 @@
 import { Box } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import { messagesBackground } from '../../constants/Constants'
 import Footer from './Footer'
 import Header from './Header'
-// import { AccountContext } from '../context/AccountData'
-export default function Messages({person}) {
-  // const {account} = useContext(AccountContext)
-  
+import { AccountContext } from '../context/AccountData'
+export default function Messages({person , conversation}) {
+  const {account} = useContext(AccountContext)
+
     const sendText = (e)=>{
    
     const code = e.keyCode || e.which;
     console.log('code ', code);
     
-  //    if(code === 13){
-  // let message = {
-  //   senderId : account.sub , 
-  //   receiverId : person.sub
-  // }
+     if(code === 13){
+  let message = {
+    senderId : account.sub , 
+    receiverId : person.sub,
+    conversationId:conversation._id
+  }
 
   
-  //    }
+     }
     
     }
   
