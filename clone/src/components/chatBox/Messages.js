@@ -1,11 +1,12 @@
 import { Box } from '@mui/material'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { messagesBackground } from '../../constants/Constants'
 import Footer from './Footer'
 import Header from './Header'
 import { AccountContext } from '../context/AccountData'
 export default function Messages({person , conversation}) {
   const {account} = useContext(AccountContext)
+  const [value,setValue] = useState('')
 
     const sendText = (e)=>{
    
@@ -16,8 +17,12 @@ export default function Messages({person , conversation}) {
   let message = {
     senderId : account.sub , 
     receiverId : person.sub,
-    conversationId:conversation._id
+    conversationId:conversation._id,
+    type:'text', 
+    text:value
   }
+  console.log(message);
+  
 
   
      }
@@ -30,7 +35,7 @@ export default function Messages({person , conversation}) {
     <Box className='w-full h-[100%] overflow-y-auto flex-1    bg-contain bg-[50%]'   style={{backgroundImage:`url(${messagesBackground})`}}>
      
     </Box>
-    <Footer sendText={sendText} />
+    <Footer sendText={sendText} setValue={setValue} value={value} />
     </Box>
   )
 }
