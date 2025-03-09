@@ -48,4 +48,14 @@ export const getConversation =async(data)=>{
 }
 
 
+export const newMessage = async(data)=>{
+    try {
+        await axios.post(`${url}/message/add`, data)
+    } catch (error) {
+     console.log('error while newMessage Api ', error.message);
+        
+    }
+}
+
+
 

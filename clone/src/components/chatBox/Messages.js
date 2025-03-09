@@ -4,14 +4,15 @@ import { messagesBackground } from '../../constants/Constants'
 import Footer from './Footer'
 import Header from './Header'
 import { AccountContext } from '../context/AccountData'
+import { newMessage } from '../../services/api'
 export default function Messages({person , conversation}) {
   const {account} = useContext(AccountContext)
   const [value,setValue] = useState('')
 
-    const sendText = (e)=>{
+    const sendText = async(e)=>{
    
     const code = e.keyCode || e.which;
-    console.log('code ', code);
+  
     
      if(code === 13){
   let message = {
@@ -22,6 +23,8 @@ export default function Messages({person , conversation}) {
     text:value
   }
   console.log(message);
+  await newMessage(message)
+  setValue('')
   
 
   
