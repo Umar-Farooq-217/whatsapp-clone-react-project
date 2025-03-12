@@ -59,3 +59,13 @@ export const newMessage = async(data)=>{
 
 
 
+export const getMessage = async(id)=>{
+    try {
+        let response = await axios.get(`${url}/message/get/${id}`)
+       return response.data
+        
+    } catch (error) {
+        console.log('error while getMessage Api ', error.message);
+
+    }
+}
