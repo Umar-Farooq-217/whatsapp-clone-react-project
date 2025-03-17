@@ -10,6 +10,7 @@ import  { AccountContext } from '../context/AccountData'
 const SendMessages =styled(Box)`
     background:#dcf8c6;
     max-width : 60% ;
+     padding : 4px ; 
     margin-left : auto ;
     width : fit-content ; 
     display : flex ; 
@@ -21,11 +22,12 @@ const SendMessages =styled(Box)`
 const ReceivedMessages =styled(Box)`
     background:#FFFFFF;
     max-width : 60% ;
-    padding : 8px ; 
+    padding : 4px ; 
     width : fit-content ; 
     display : flex ; 
     border-radius : 10px ; 
-    word-break : break-word 
+    word-break : break-word ;
+    margin-top : 5px
     `
 export default function Message({message}) {
     const { account } = useContext(AccountContext)

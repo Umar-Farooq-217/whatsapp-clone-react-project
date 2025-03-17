@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, styled } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 import { messagesBackground } from '../../constants/Constants'
 import Footer from './Footer'
@@ -7,11 +7,14 @@ import { AccountContext } from '../context/AccountData'
 import { getMessage, newMessage } from '../../services/api'
 import Message from './Message'
 
-const 
+const Container = styled(Box)`
+padding: 1px 70px;
+`
 export default function Messages({ person, conversation }) {
   const { account } = useContext(AccountContext)
   const [value, setValue] = useState('')
   const [message, setMessage] = useState([])
+  const [render , setRender] = useState(false)
 
   useEffect(() => {
 
@@ -21,7 +24,7 @@ export default function Messages({ person, conversation }) {
 
     }
     conversation._id && getMessageDetails()
-  }, [conversation._id, person._id])
+  }, [conversation._id, person._id , render])
 
   const sendText = async (e) => {
 
@@ -39,6 +42,7 @@ export default function Messages({ person, conversation }) {
       console.log(message);
       await newMessage(message)
       setValue('')
+      setRender(prev => !prev)
 
 
 
@@ -52,9 +56,9 @@ export default function Messages({ person, conversation }) {
       <Box className='w-full h-[100%] overflow-y-auto flex-1    bg-contain bg-[50%]' style={{ backgroundImage: `url(${messagesBackground})` }}>
         {
           message && message.map(message => (
-            <Box >
+            <Container >
               <Message message={message} />
-            </Box>
+            </Container>
 
           ))
         }
