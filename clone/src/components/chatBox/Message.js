@@ -35,12 +35,12 @@ export default function Message({message}) {
       account.sub === message.senderId ?
       <SendMessages >
       <Typography sx={{fontSize:20, paddingLeft:2 , paddingTop:'5px', paddingBottom:'5px'}}>{message.text}</Typography>
-      <Typography sx={{fontSize:14 , marginLeft:2 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
+      <Typography sx={{fontSize:14 , marginLeft:3 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
     </SendMessages>
     :
     <ReceivedMessages >
-      <Typography sx={{fontSize:20, paddingLeft:2 , paddingTop:'5px', paddingBottom:'5px'}}>{message.text}</Typography>
-      <Typography sx={{fontSize:14 , marginLeft:2 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
+      <Typography sx={{fontSize:20, paddingLeft:1 , paddingTop:'5px', paddingBottom:'5px'}}>{message.text}</Typography>
+      <Typography sx={{fontSize:14 , marginLeft:3 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
     </ReceivedMessages>
     }
     </>
