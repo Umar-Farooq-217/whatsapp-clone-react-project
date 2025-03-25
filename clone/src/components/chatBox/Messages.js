@@ -15,6 +15,7 @@ export default function Messages({ person, conversation }) {
   const [value, setValue] = useState('')
   const [message, setMessage] = useState([])
   const [render , setRender] = useState(false)
+  const [file , setFile] = useState()
 
   useEffect(() => {
 
@@ -63,7 +64,13 @@ export default function Messages({ person, conversation }) {
           ))
         }
       </Box>
-      <Footer sendText={sendText} setValue={setValue} value={value} />
+      <Footer
+       sendText={sendText}
+        setValue={setValue}
+         value={value}
+         file={file}
+         setFile={setFile}
+         />
     </Box>
   )
 }

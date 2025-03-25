@@ -69,3 +69,11 @@ export const getMessage = async(id)=>{
 
     }
 }
+
+export const uploadFile = async(data)=>{
+    try {
+        return axios.post(`${url}/file/upload`)
+    } catch (error) {
+        console.log('error while uploadFile Api ', error.message);
+    }
+}
