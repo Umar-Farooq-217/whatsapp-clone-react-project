@@ -1,13 +1,14 @@
 import multer from 'multer'
 import { GridFsStorage } from "multer-gridfs-storage";
+import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
 
-const URL = process.env.DATABASE_URL;
+ 
 const storage = new GridFsStorage({
-URL,
+url :process.env.DATABASE_URL ,
 options : { useNewUrlParser: true },
-file : (request , file)=>{
+file : (req , file)=>{
     const match = [ 'image/png' , 'image/jpg']
     if(match.indexOf(file.mimeType) === -1){
         return `${Date.now()}-file-${file.originalName}`
@@ -19,5 +20,5 @@ file : (request , file)=>{
     }
 }
 })
-
-export default multer({ storage })
+const upload = multer({storage});
+export default upload;
