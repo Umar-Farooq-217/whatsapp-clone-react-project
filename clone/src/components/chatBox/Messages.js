@@ -57,7 +57,7 @@ export default function Messages({ person, conversation }) {
       <Box className='w-full h-[100%] overflow-y-auto flex-1    bg-contain bg-[50%]' style={{ backgroundImage: `url(${messagesBackground})` }}>
         {
           message && message.map(message => (
-            <Container  >
+            <Container key={message._id}  >
               <Message message={message} />
             </Container>
 

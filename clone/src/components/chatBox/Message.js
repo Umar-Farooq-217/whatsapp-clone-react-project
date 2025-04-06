@@ -29,10 +29,10 @@ const ReceivedMessages =styled(Box)`
     word-break : break-word ;
     margin-top : 5px
     `
-export default function Message({message}) {
+export default function Message({message }) {
     const { account } = useContext(AccountContext)
   return (
-    <>
+    <Box >
     {
       account.sub === message.senderId ?
       <SendMessages  >
@@ -45,7 +45,7 @@ export default function Message({message}) {
       <Typography sx={{fontSize:14 , marginLeft:3 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
     </ReceivedMessages>
     }
-    </>
+    </Box>
 
     
   )
