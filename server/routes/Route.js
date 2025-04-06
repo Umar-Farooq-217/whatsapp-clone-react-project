@@ -2,8 +2,8 @@ import express from 'express'
 import { addUser,getUsers } from '../controller/UserConroller.js';
 import { newConversation , getConversation  } from '../controller/ConversatonsController.js';
 import { newMessage , getMessage } from '../controller/message-conroller.js';
-// import { uploadFile } from '../controller/image-controller.js';
-// import upload from '../../server/utils/upload.js'
+import { uploadFile } from '../controller/image-controller.js';
+import upload from '../../server/utils/upload.js'
 
 const router  = express.Router()
 router.post('/add',addUser)
@@ -22,7 +22,7 @@ router.get('/message/get/:id', getMessage)
 // 2-Multer-GRIDFS-STORAGE   npm i multer-gridfs-storage
 // multer-gridfs-storage engine for multer to store uploaded files directly from mongodb.
 
-// router.post('/file/upload',upload.single('file') , uploadFile)
+router.post('/file/upload',upload.single('file') , uploadFile)
 // router.post('/file/upload', uploadFile)
 
 

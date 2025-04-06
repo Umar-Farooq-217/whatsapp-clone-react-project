@@ -12,6 +12,7 @@ export default function Conversations({text}) {
     useEffect(()=>{
         const fetchData = async()=>{
             let response = await getUsers()
+           
        let filteredRespose = response.filter(user => user.name.toLowerCase().includes(text.toLowerCase()))
             
                 setUsers(filteredRespose)

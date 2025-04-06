@@ -1,11 +1,12 @@
 
-// const url = 'http://localhost:8000'
+const url = 'http://localhost:8000'
 
 
-// export const uploadFile = async(req , res)=>{
-//     if(!req.file){
-//         return res.status(404).json('file not found')
-//     }
+export const uploadFile = async(req , res)=>{
+    if(!req.file){
+        return res.status(404).json('file not found')
+    }
 
-//     const imageUrl = `${url}/file/${req.file.fileName}`
-// }
+    const imageUrl = `${url}/file/${req.file.filename}`
+    return res.status(200).json(imageUrl)
+}
