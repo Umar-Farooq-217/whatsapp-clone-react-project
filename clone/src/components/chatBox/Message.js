@@ -36,8 +36,8 @@ export default function Message({message }) {
     {
       account.sub === message.senderId ?
       <SendMessages  >
-      <Typography sx={{fontSize:20, paddingLeft:2 , paddingTop:'5px', paddingBottom:'5px'}}>{message.text}</Typography>
-      <Typography sx={{fontSize:14 , marginLeft:3 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
+        { message.type === 'file' ? <ImageMessage message={message} /> : <TextMessage message={message} /> }
+      
     </SendMessages>
     :
     <ReceivedMessages  >
@@ -50,3 +50,27 @@ export default function Message({message }) {
     
   )
 }
+ const ImageMessage = ( {message} ) =>{
+  return(
+    <>
+    {
+      message?.text?.includes('.pdf') ?
+      <Box>
+
+      </Box>
+      :
+      <img src={message.text} alt={message.text} />
+    }
+    </>
+  )
+ }
+
+
+  const TextMessage = ({message})=>{
+    return(
+      <>
+      <Typography sx={{fontSize:20, paddingLeft:2 , paddingTop:'5px', paddingBottom:'5px'}}>{message.text}</Typography>
+      <Typography sx={{fontSize:14 , marginLeft:3 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
+      </>
+    )
+  }

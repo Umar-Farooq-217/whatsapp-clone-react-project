@@ -4,15 +4,17 @@ import MoodIcon from '@mui/icons-material/Mood';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import MicIcon from '@mui/icons-material/Mic';
 import { uploadFile } from '../../services/api';
-export default function Footer({ sendText, setValue, value , file , setFile }) {
+export default function Footer({ sendText, setValue, value , file , setFile , setImage}) {
 useEffect(()=>{
   const getImage = async()=>{
-    if(file){
+    // i use " instanseof File " beacause useEffect was firing automatically uncountable requests
+    if(file instanceof File){
       const data = new FormData();
       data.append('fileName', file.name)
       data.append('file',file)
 
-      await uploadFile(data)
+     let response = await uploadFile(data)
+     setImage(response.data)
     }
   }
   getImage()

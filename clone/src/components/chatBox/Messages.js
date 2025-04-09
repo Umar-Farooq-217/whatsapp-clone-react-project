@@ -16,6 +16,7 @@ export default function Messages({ person, conversation }) {
   const [message, setMessage] = useState([])
   const [render , setRender] = useState(false)
   const [file , setFile] = useState()
+  const [image ,setImage]= useState('')
 
   useEffect(() => {
 
@@ -33,16 +34,29 @@ export default function Messages({ person, conversation }) {
 
 
     if (code === 13) {
-      let message = {
+      let message = {}
+      if(!file){
+     message = {
         senderId: account.sub,
         receiverId: person.sub,
         conversationId: conversation._id,
         type: 'text',
         text: value
       }
+    } else{
+      message = {
+        senderId: account.sub,
+        receiverId: person.sub,
+        conversationId: conversation._id,
+        type: 'file',
+        text: image
+    }
+  }
       console.log(message);
       await newMessage(message)
       setValue('')
+      setFile("")
+      setImage('')
       setRender(prev => !prev)
 
 
@@ -70,6 +84,7 @@ export default function Messages({ person, conversation }) {
          value={value}
          file={file}
          setFile={setFile}
+         setImage={setImage}
          />
     </Box>
   )
