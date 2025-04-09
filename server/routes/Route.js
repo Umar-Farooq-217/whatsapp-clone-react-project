@@ -27,7 +27,7 @@ router.post('/file/upload',upload.single('file') , uploadFile)
 //Easily stream files to and from MongoDB GridFs
 // we upload data in the binary form now , gridfs-stream will change data from binary form to actual data
 
-router.get('/files/:filename' , getImage)
+router.get('/file/:filename' , getImage)
 
 
 

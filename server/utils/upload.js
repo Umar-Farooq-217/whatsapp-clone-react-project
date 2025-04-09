@@ -7,7 +7,7 @@ dotenv.config()
  
 const storage = new GridFsStorage({
 url :process.env.DATABASE_URL ,
-options : { useNewUrlParser: true },
+options : { useNewUrlParser: true , useUnifiedTopology: true },
 file : (req , file)=>{
     const match = [ 'image/png' , 'image/jpg']
     if(match.indexOf(file.mimeType) === -1){
