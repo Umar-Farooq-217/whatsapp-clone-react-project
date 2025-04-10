@@ -1,13 +1,13 @@
 import { Box, styled, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { formatDate } from '../../utils/CommonUtils'
-import  { AccountContext } from '../context/AccountData'
+import { AccountContext } from '../context/AccountData'
+import GetAppIcon from '@mui/icons-material/GetApp';
 
 
 
 
-
-const SendMessages =styled(Box)`
+const SendMessages = styled(Box)`
     background:#dcf8c6;
     max-width : 60% ;
      padding : 4px ; 
@@ -19,7 +19,7 @@ const SendMessages =styled(Box)`
     margin-top: 8px
     
     `
-const ReceivedMessages =styled(Box)`
+const ReceivedMessages = styled(Box)`
     background:#FFFFFF;
     max-width : 60% ;
     padding : 4px ; 
@@ -29,48 +29,59 @@ const ReceivedMessages =styled(Box)`
     word-break : break-word ;
     margin-top : 5px
     `
-export default function Message({message }) {
-    const { account } = useContext(AccountContext)
+export default function Message({ message }) {
+  const { account } = useContext(AccountContext)
   return (
     <Box >
-    {
-      account.sub === message.senderId ?
-      <SendMessages  >
-        { message.type === 'file' ? <ImageMessage message={message} /> : <TextMessage message={message} /> }
-      
-    </SendMessages>
-    :
-    <ReceivedMessages  >
-      <Typography sx={{fontSize:20, paddingLeft:1 , paddingTop:'5px', paddingBottom:'5px'}}>{message.text}</Typography>
-      <Typography sx={{fontSize:14 , marginLeft:3 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
-    </ReceivedMessages>
-    }
+      {
+        account.sub === message.senderId ?
+          <SendMessages  >
+            {message.type === 'file' ?
+
+
+              <ImageMessage message={message} />
+              :
+              <TextMessage message={message} />}
+
+          </SendMessages>
+          :
+          <ReceivedMessages  >
+            <Typography sx={{ fontSize: 20, paddingLeft: 1, paddingTop: '5px', paddingBottom: '5px' }}>{message.text}</Typography>
+            <Typography sx={{ fontSize: 14, marginLeft: 3, paddingRight: 1, display: 'flex', marginTop: 'auto', wordBreak: 'keep-all', color: 'gray' }} >{formatDate(message.createdAt)}</Typography>
+          </ReceivedMessages>
+      }
     </Box>
 
-    
+
   )
 }
- const ImageMessage = ( {message} ) =>{
-  return(
-    <>
-    {
-      message?.text?.includes('.pdf') ?
-      <Box>
+const ImageMessage = ({ message }) => {
+  return (
+    <Box sx={{}}>
+      {
+        message?.text?.includes('.pdf') ?
+          <Box>
 
-      </Box>
-      :
-      <img src={message.text} alt={message.text} style={{width:'300px' , height:'100%', objectFit:'cover'}} />
-    }
+          </Box>
+          :
+         
+            <img src={message.text} alt={message.text} style={{ width: '300px', height: '100%', objectFit: 'cover', borderRadius: 8 }} />
+      }
+       <Box sx={{ fontSize: 14, marginLeft: 3, paddingRight: 1, display: 'flex', marginTop: 'auto', wordBreak: 'keep-all', color: 'gray', }} >
+              <GetAppIcon
+                style={{ marginRight: 10, border: '1px solid gray', borderRadius: '50%', padding: 1 }} />
+              {formatDate(message.createdAt)}</Box>
+
+    </Box>
+  )
+}
+
+
+const TextMessage = ({ message }) => {
+  return (
+    <>
+      <Typography sx={{ fontSize: 20, paddingLeft: 2, paddingTop: '5px', paddingBottom: '5px' }}>{message.text}</Typography>
+      <Typography sx={{ fontSize: 14, marginLeft: 3, paddingRight: 1, display: 'flex', marginTop: 'auto', wordBreak: 'keep-all', color: 'gray' }} >{formatDate(message.createdAt)}</Typography>
     </>
   )
- }
-
-
-  const TextMessage = ({message})=>{
-    return(
-      <>
-      <Typography sx={{fontSize:20, paddingLeft:2 , paddingTop:'5px', paddingBottom:'5px'}}>{message.text}</Typography>
-      <Typography sx={{fontSize:14 , marginLeft:3 ,paddingRight:1, display:'flex',marginTop:'auto', wordBreak:'keep-all', color:'gray'}} >{formatDate(message.createdAt)}</Typography>
-      </>
-    )
-  }
+}
