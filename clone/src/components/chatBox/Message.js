@@ -59,7 +59,7 @@ export default function Message({message }) {
 
       </Box>
       :
-      <img src={message.text} alt={message.text} />
+      <img src={message.text} alt={message.text} style={{width:'300px' , height:'100%', objectFit:'cover'}} />
     }
     </>
   )

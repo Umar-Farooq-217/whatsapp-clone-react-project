@@ -54,8 +54,9 @@ export default function Messages({ person, conversation }) {
   }
       console.log(message);
       await newMessage(message)
+    
       setValue('')
-      setFile("")
+      setFile(null)
       setImage('')
       setRender(prev => !prev)
 
