@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { formatDate } from '../../utils/CommonUtils'
 import { AccountContext } from '../context/AccountData'
 import GetAppIcon from '@mui/icons-material/GetApp';
-
+import { iconPDF} from '../../constants/Constants'
 
 
 
@@ -41,13 +41,19 @@ export default function Message({ message }) {
 
               <ImageMessage message={message} />
               :
-              <TextMessage message={message} />}
+              <TextMessage message={message} />
+              }
 
           </SendMessages>
           :
           <ReceivedMessages  >
-            <Typography sx={{ fontSize: 20, paddingLeft: 1, paddingTop: '5px', paddingBottom: '5px' }}>{message.text}</Typography>
-            <Typography sx={{ fontSize: 14, marginLeft: 3, paddingRight: 1, display: 'flex', marginTop: 'auto', wordBreak: 'keep-all', color: 'gray' }} >{formatDate(message.createdAt)}</Typography>
+           {message.type === 'file' ?
+
+
+<ImageMessage message={message} />
+:
+<TextMessage message={message} />
+}
           </ReceivedMessages>
       }
     </Box>
@@ -60,17 +66,26 @@ const ImageMessage = ({ message }) => {
     <Box sx={{}}>
       {
         message?.text?.includes('.pdf') ?
-          <Box>
-
+          <Box sx={{display:'flex',position:'relative'}}>
+ <img src={iconPDF} alt='pdf' style={{ width: '100px' }} />
+ <Box>
+ <Typography sx={{fontSize:'17px',wordBreak:'keep-all',paddingTop:1,paddingRight:2}}>{message.text.split('/').pop()}</Typography>
+ <Box sx={{ fontSize: 17, marginLeft: 3, paddingRight: 1,  marginTop: 'auto', wordBreak: 'keep-all', color: 'gray',position:'absolute',bottom:2 , right:0 }} >
+              <GetAppIcon
+                style={{ marginRight: 10, border: '1px solid gray', borderRadius: '50%', padding: 1, fontSize:'30px' }} />
+              {formatDate(message.createdAt)}</Box>
+              </Box>
           </Box>
           :
-         
+         <Box sx={{position:'relative'}}>
             <img src={message.text} alt={message.text} style={{ width: '300px', height: '100%', objectFit: 'cover', borderRadius: 8 }} />
-      }
-       <Box sx={{ fontSize: 14, marginLeft: 3, paddingRight: 1, display: 'flex', marginTop: 'auto', wordBreak: 'keep-all', color: 'gray', }} >
+            <Box sx={{ fontSize: 14, marginLeft: 3, paddingRight: 1, display: 'flex', marginTop: 'auto', wordBreak: 'keep-all', color: 'gray',position:'absolute' , bottom:0 , right:2 }} >
               <GetAppIcon
-                style={{ marginRight: 10, border: '1px solid gray', borderRadius: '50%', padding: 1 }} />
+                style={{ marginRight: 10, border: '1px solid gray', borderRadius: '50%', padding: 1, fontSize:'30px', marginBottom:4 }} />
               {formatDate(message.createdAt)}</Box>
+            </Box>
+      }
+      
 
     </Box>
   )
