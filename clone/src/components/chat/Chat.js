@@ -30,8 +30,8 @@ const [text,setText] = useState('')
         </Toolbar>
       </AppBar>
       <Dialog open={true} PaperProps={{ sx: dialogStyle }} hideBackdrop={true} maxWidth={false}>
-        <Box className='flex max-w-[2000px] h-full overflow-hidden'>
-          <Box className='min-w-[400px]  '>
+        <Box className='flex max-w-[2000px]  h-full  overflow-hidden'>
+          <Box className='min-w-[400px] '>
             <Header />
             <Search setText={setText} />
         <Conversations text={text} />

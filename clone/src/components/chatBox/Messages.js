@@ -1,5 +1,5 @@
 import { Box, styled } from '@mui/material'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import { messagesBackground } from '../../constants/Constants'
 import Footer from './Footer'
 import Header from './Header'
@@ -18,6 +18,8 @@ export default function Messages({ person, conversation }) {
   const [file , setFile] = useState()
   const [image ,setImage]= useState('')
 
+
+
   useEffect(() => {
 
     const getMessageDetails = async () => {
@@ -28,6 +30,7 @@ export default function Messages({ person, conversation }) {
     conversation._id && getMessageDetails()
   }, [conversation._id, person._id , render])
 
+ 
   const sendText = async (e) => {
 
     const code = e.keyCode || e.which;
@@ -69,11 +72,12 @@ export default function Messages({ person, conversation }) {
   return (
     <Box className='h-full flex flex-col '>
       <Header person={person} />
-      <Box className='w-full h-[100%] overflow-y-auto flex-1    bg-contain bg-[50%]' style={{ backgroundImage: `url(${messagesBackground})` }}>
+      <Box className='w-full h-[100%] overflow-y-auto flex-1 bg-contain bg-[50%]' style={{ backgroundImage: `url(${messagesBackground})` }}>
         {
           message && message.map(message => (
-            <Container key={message._id}  >
+            <Container key={message._id} >
               <Message message={message} />
+           
             </Container>
 
           ))

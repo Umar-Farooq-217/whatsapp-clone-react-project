@@ -7,7 +7,7 @@ import { Box } from '@mui/material'
 
 export default function Conversations({text}) {
     const [users, setUsers]= useState([])
-    const {account} = useContext(AccountContext)
+    const {account , socket,setActiveUsers} = useContext(AccountContext)
 
     useEffect(()=>{
         const fetchData = async()=>{
@@ -21,7 +21,16 @@ export default function Conversations({text}) {
         fetchData()
     },[text])
 
-
+    useEffect(() => {
+      if (account) {
+        socket.current.emit('addUsers', account);
+    
+        socket.current.on('getUsers', (onlineUsers) => {
+          setActiveUsers(onlineUsers);
+        });
+      }
+    }, [account, socket, setActiveUsers]);
+    
 
   return (
     <Box sx={{height:'100%'  , overflowY:'auto'}}>
