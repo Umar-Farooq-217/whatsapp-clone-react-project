@@ -72,7 +72,7 @@ export default function Messages({ person, conversation }) {
   return (
     <Box className='h-full flex flex-col '>
       <Header person={person} />
-      <Box className='w-full h-[100%] overflow-y-auto flex-1 bg-contain bg-[50%]' style={{ backgroundImage: `url(${messagesBackground})` }}>
+      <Box className='w-full h-[100%] overflow-y-auto flex-1 bg-contain bg-[50%] pb-2' style={{ backgroundImage: `url(${messagesBackground})` }}>
         {
           message && message.map(message => (
             <Container key={message._id} >
