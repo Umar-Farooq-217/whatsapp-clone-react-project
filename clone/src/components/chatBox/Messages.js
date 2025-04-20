@@ -7,18 +7,29 @@ import { AccountContext } from '../context/AccountData'
 import { getMessage, newMessage } from '../../services/api'
 import Message from './Message'
 
+
 const Container = styled(Box)`
 padding: 1px 70px;
 `
 export default function Messages({ person, conversation }) {
-  const { account } = useContext(AccountContext)
+  
+
+  const { account , socket } = useContext(AccountContext)
   const [value, setValue] = useState('')
   const [message, setMessage] = useState([])
   const [render , setRender] = useState(false)
   const [file , setFile] = useState()
   const [image ,setImage]= useState('')
+  const [incomingMessage , setIncomingMessage] = useState(null)
 
-
+useEffect(()=>{
+  socket.current.on('getMessage',data =>{
+setIncomingMessage({
+  ...data , 
+  createdAt : Date.now()
+})
+  })
+},[socket])
 
   useEffect(() => {
 
@@ -30,7 +41,13 @@ export default function Messages({ person, conversation }) {
     conversation._id && getMessageDetails()
   }, [conversation._id, person._id , render])
 
- 
+  useEffect(()=>{
+    incomingMessage && conversation?.members?.includes(incomingMessage.senderId) &&
+    setMessage(prev =>[...prev,incomingMessage])
+  },[incomingMessage,conversation])
+
+
+
   const sendText = async (e) => {
 
     const code = e.keyCode || e.which;
@@ -55,7 +72,9 @@ export default function Messages({ person, conversation }) {
         text: image
     }
   }
-      console.log(message);
+      socket.current.emit('sendMessage',message)    
+
+
       await newMessage(message)
     
       setValue('')
@@ -68,6 +87,9 @@ export default function Messages({ person, conversation }) {
     }
 
   }
+
+   
+
 
   return (
     <Box className='h-full flex flex-col '>
