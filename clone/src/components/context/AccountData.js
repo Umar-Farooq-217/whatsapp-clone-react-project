@@ -9,9 +9,12 @@ export default function AccountData({children}) {
     const [activeUsers,setActiveUsers]=useState([])
   const socket = useRef()
 
-  useEffect(()=>{
-    socket.current = io('ws://localhost:9000')
-  },[])
+  useEffect(() => {
+    socket.current = io('ws://localhost:9000');
+  
+    socket.current.emit('addUsers', account); // <-- Make sure this runs
+  }, [account]);
+  
 
 
   return (
