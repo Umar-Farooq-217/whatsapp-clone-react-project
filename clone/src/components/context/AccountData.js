@@ -6,6 +6,7 @@ export const AccountContext = createContext(null)
 export default function AccountData({children}) {
     const [account,setAccount] = useState(null)
     const [person,setPerson] = useState({})
+     const [render , setRender] = useState(false)
     const [activeUsers,setActiveUsers]=useState([])
   const socket = useRef()
 
@@ -25,7 +26,9 @@ export default function AccountData({children}) {
         setPerson,
         socket,
         activeUsers,
-        setActiveUsers
+        setActiveUsers,
+        render,
+        setRender
     }}>
       {children}
     </AccountContext.Provider>

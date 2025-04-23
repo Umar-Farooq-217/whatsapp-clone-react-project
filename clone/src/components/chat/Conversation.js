@@ -1,9 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import { AccountContext } from '../context/AccountData'
-import { newConversation   } from '../../services/api'
+import { getConversation, newConversation   } from '../../services/api'
+import { formatDate } from '../../utils/CommonUtils'
 export default function Conversation({ user }) {
-  const { setPerson, account } = useContext(AccountContext)
+  const { setPerson, account , render } = useContext(AccountContext)
+  const [message , setMessage]= useState({})
+  useEffect(()=>{
+    const getConversationDetails = async()=>{
+     const data = await getConversation({senderId:account.sub,receiverId:user.sub})
+     setMessage({text:data?.message , timestamp : data?.updatedAt})
+
+    }
+    getConversationDetails()
+  },[render])
 
   const userHandler = async () => {
     setPerson(user)
@@ -32,8 +42,14 @@ export default function Conversation({ user }) {
       </Box>
       <Box className="border-b ml-3 border-gray-200 w-full">
         <Typography className='  ' sx={{ fontWeight: 500 }} >{user.name}</Typography>
+        {
+          message?.text && 
+          <Typography>{formatDate(message.timestamp)}</Typography>
+        }
 
       </Box>
+      <Box>{
+        message?.text.includes('localhost') ? 'media' : message?.text}</Box>
 
     </Box>
   )

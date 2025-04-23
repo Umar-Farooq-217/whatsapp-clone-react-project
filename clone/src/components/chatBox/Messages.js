@@ -14,10 +14,10 @@ padding: 1px 70px;
 export default function Messages({ person, conversation }) {
   
 
-  const { account , socket } = useContext(AccountContext)
+  const { account , socket , render , setRender } = useContext(AccountContext)
   const [value, setValue] = useState('')
   const [message, setMessage] = useState([])
-  const [render , setRender] = useState(false)
+  // const [render , setRender] = useState(false)
   const [file , setFile] = useState()
   const [image ,setImage]= useState('')
   const [incomingMessage , setIncomingMessage] = useState(null)
