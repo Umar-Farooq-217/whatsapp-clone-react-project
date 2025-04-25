@@ -4,7 +4,7 @@ import { AccountContext } from '../context/AccountData'
 import { getConversation, newConversation   } from '../../services/api'
 import { formatDate } from '../../utils/CommonUtils'
 export default function Conversation({ user }) {
-  const { setPerson, account , render } = useContext(AccountContext)
+  const { setPerson, account } = useContext(AccountContext)
   const [message , setMessage]= useState({})
   useEffect(()=>{
     const getConversationDetails = async()=>{
@@ -13,7 +13,7 @@ export default function Conversation({ user }) {
 
     }
     getConversationDetails()
-  },[render])
+  },[account,user])
 
   const userHandler = async () => {
     setPerson(user)
