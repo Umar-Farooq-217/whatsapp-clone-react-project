@@ -20,15 +20,14 @@ export default function Messages({ person, conversation }) {
   const [file , setFile] = useState()
   const [image ,setImage]= useState('')
   const [incomingMessage , setIncomingMessage] = useState(null)
-
-useEffect(()=>{
-  socket.current.on('getMessage',data =>{
-setIncomingMessage({
-  ...data , 
-  createdAt : Date.now()
-})
-  })
-},[socket])
+  useEffect(() => {
+    socket.current.emit('addUsers', account)
+  }, [account,socket])
+  useEffect(() => {
+    socket.current.on('getMessage', data => {
+      setIncomingMessage({ ...data, createdAt: Date.now() })
+    })
+  }, [socket])
 
   useEffect(() => {
 
@@ -53,6 +52,9 @@ setIncomingMessage({
 
 
     if (code === 13) {
+      if (value.trim() === '' && !file) {
+        return; // do nothing if no text and no file
+      }
       let message = {}
       if(!file){
      message = {
