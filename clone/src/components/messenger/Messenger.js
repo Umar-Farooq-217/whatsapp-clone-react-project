@@ -13,8 +13,8 @@ background:#25D366;
 
 
 export default function Messenger() {
-  const clientId ='1006514867973-n0ljnnvj7idvq03audm114t3o3kkaqvr.apps.googleusercontent.com'
-  //  console.log(clientId);
+  const clientId =process.env.REACT_APP_GOOGLE_CLIENT_ID;
+
   const {account} = useContext(AccountContext)
    
     
